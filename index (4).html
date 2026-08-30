@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио — Екатерина Гузман</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #29362D;
+    --mid: #5E6B61;
+    --light: #879188;
+    --gold: #B79A68;
+    --gold-light: #F3EBDD;
+    --teal: #1a6b6b;
+    --teal-light: #e6f4f4;
+    --blue: #1a3a6b;
+    --blue-light: #e8eef8;
+    --rose: #8b2252;
+    --rose-light: #f7eaf2;
+    --green: #1a5c3a;
+    --green-light: #e6f4ec;
+    --border: #DCE4DD;
+    --bg: #FAF8F3;
+    --white: #ffffff;
+    --sage: #718A76;
+    --sage-deep: #E4ECE5;
+    --sage-light: #F0F4F0;
+    --terracotta: #B96F5D;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--sage-deep);
+    color: var(--ink);
+    padding: 64px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.48);
+    top: -200px; right: -150px;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(129,155,135,0.12);
+    bottom: -120px; left: -80px;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .header-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; }
+  .header-profile { position: relative; }
+  .header-photo { width: 100%; height: 330px; display: block; object-fit: cover; object-position: 58% center; border-radius: 18px; border: 1px solid rgba(255,255,255,.2); box-shadow: 0 24px 60px rgba(0,0,0,.24); }
+
+  .header-tag {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .header h1 em { color: var(--sage); font-style: italic; }
+  .header-titles {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    border: 1px solid rgba(71,95,77,0.16);
+    color: var(--mid);
+    background: rgba(255,255,255,0.58);
+  }
+  .badge-gold {
+    background: rgba(255,255,255,0.82);
+    border-color: rgba(129,155,135,0.42);
+    color: var(--sage);
+  }
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 12px 22px;
+    border-radius: 9px;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 8px 22px rgba(185,111,93,.22);
+    transition: transform .2s, background .2s, box-shadow .2s;
+  }
+  .header-cta:hover { background: #A86050; transform: translateY(-1px); box-shadow: 0 10px 26px rgba(185,111,93,.28); }
+
+  .header-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: center;
+    margin-top: 18px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 600;
+  }
+  .stat-label { font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 3px; }
+
+  /* ── NAV ── */
+  .nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+    overflow-x: auto;
+  }
+  .nav a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 56px 0; }
+  .section + .section { border-top: 1px solid var(--border); }
+
+  .section-header { margin-bottom: 32px; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; }
+  .about-lead {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .about-lead strong { color: var(--ink); font-weight: 600; }
+  .competencies { display: flex; flex-direction: column; gap: 12px; }
+  .comp-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--gold);
+  }
+  .comp-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .comp-desc { font-size: 12px; color: var(--light); line-height: 1.5; }
+
+  /* ── PUBLICATION CARD ── */
+  .pubs-grid { display: flex; flex-direction: column; gap: 12px; }
+  .pub-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px 20px;
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .pub-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); border-color: var(--gold); }
+  .pub-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .pub-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .pub-source {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+  .pub-source.sport { background: var(--green-light); color: var(--green); }
+  .pub-source.psych { background: var(--rose-light); color: var(--rose); }
+  .pub-source.seo { background: var(--teal-light); color: var(--teal); }
+  .pub-date { font-size: 11px; color: var(--light); }
+  .pub-role { font-size: 11px; color: var(--light); font-style: italic; }
+  .pub-citation {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: right;
+    padding-top: 2px;
+  }
+  .pub-arrow { color: var(--light); font-size: 16px; display: block; margin-top: 4px; text-align: right; }
+
+  /* category group */
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 32px 0 14px;
+  }
+  .cat-header:first-child { margin-top: 0; }
+  .cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .cat-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .cat-count {
+    font-size: 12px;
+    color: var(--light);
+    margin-left: auto;
+  }
+
+  /* ── PUBLICATION ARCHIVE ── */
+  .archive-shell { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .archive-shell summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 24px; cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; }
+  .archive-shell summary::-webkit-details-marker { display: none; }
+  .archive-shell summary span { color: var(--gold); font-size: 12px; font-weight: 500; }
+  .archive-content { padding: 0 24px 24px; border-top: 1px solid var(--border); }
+  .archive-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 0; }
+  .archive-filter { border: 1px solid var(--border); border-radius: 20px; padding: 7px 13px; color: var(--mid); background: var(--bg); font: inherit; font-size: 11px; cursor: pointer; }
+  .archive-filter.active { color: #fff; border-color: var(--ink); background: var(--ink); }
+  .archive-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .archive-item { display: flex; flex-direction: column; justify-content: space-between; min-height: 112px; padding: 16px; color: inherit; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: border-color .2s, box-shadow .2s; }
+  .archive-item:hover { border-color: var(--gold); box-shadow: 0 3px 14px rgba(0,0,0,.05); }
+  .archive-item span { font-size: 13px; line-height: 1.45; }
+  .archive-item small { margin-top: 12px; color: var(--gold); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+  .archive-item[hidden] { display: none; }
+
+  /* ── MEDIA LOGOS ── */
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .logo-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    min-height: 76px;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .logo-chip:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(47,64,52,.09); border-color: var(--sage); }
+  .logo-chip.kommersant { font-family: Georgia, serif; color: #111; font-weight: 400; }
+  .logo-chip.kp { color: #154f92; font-family: Arial, sans-serif; font-weight: 800; }
+  .logo-chip.rt { color: #111; background: #8dd400; border-color: #8dd400; font-size: 25px; }
+  .logo-chip.forbes { font-family: Georgia, serif; color: #111; font-weight: 400; }
+  .logo-chip.maxim { color: #e21c2a; font-family: Arial, sans-serif; font-size: 22px; font-weight: 900; }
+  .logo-chip.interfax { color: #e4262e; }
+  .logo-chip.tass { color: #1259a7; font-size: 21px; }
+  .logo-chip.krasnodar { color: #df2027; }
+  .logo-chip.kuban { color: #177452; }
+  .logo-chip.ugtimes { color: #78366f; font-family: Georgia, serif; }
+  .logo-chip.tsargrad { color: #9b2135; font-family: Georgia, serif; }
+  .logo-chip.lenta { color: #c7102e; font-size: 20px; }
+  .logo-chip.championat { color: #f07800; }
+  .logo-chip.jivi { color: #e53469; font-size: 21px; }
+  .logo-chip.mir { color: #125caa; font-size: 21px; }
+  .logo-chip.quality { color: #176678; }
+  .logo-chip.lady { color: #a32777; font-family: Georgia, serif; }
+  .logo-chip.aif { color: #c71920; font-family: Arial, sans-serif; font-size: 21px; font-weight: 900; }
+  .logo-chip.ki { color: #196340; font-family: Georgia, serif; }
+  .logo-chip.abzac { color: #d3262e; font-family: Arial, sans-serif; font-size: 19px; font-weight: 900; }
+  .logo-chip.mk { color: #121212; font-family: Georgia, serif; font-size: 18px; }
+
+  /* ── EXPERTISE ── */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .exp-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+  .exp-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .exp-desc { font-size: 12px; color: var(--light); line-height: 1.6; }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: var(--sage-deep);
+    border-radius: 16px;
+    padding: 40px;
+    color: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .contact-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .contact-box p { font-size: 14px; color: var(--mid); line-height: 1.6; }
+  .contact-links { display: flex; flex-direction: column; gap: 10px; }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(71,95,77,0.15);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: #fff; }
+  .contact-link .icon { font-size: 16px; }
+
+  /* ── SERVICES ── */
+  .services-note { margin-top: 22px; padding: 18px 20px; border-left: 3px solid var(--gold); background: var(--sage-light); color: var(--mid); font-size: 13px; line-height: 1.65; }
+
+  /* ── MEDIA PROFILE CHECKLIST ── */
+  .audit-intro { max-width: 720px; margin: -14px 0 28px; color: var(--mid); font-size: 14px; line-height: 1.7; }
+  .audit-layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 22px; align-items: start; }
+  .audit-groups { display: flex; flex-direction: column; gap: 14px; }
+  .audit-group { background: var(--white); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; }
+  .audit-group-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; background: var(--sage-light); border-bottom: 1px solid var(--border); }
+  .audit-group-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--ink); }
+  .audit-group-score { min-width: 58px; padding: 5px 9px; border-radius: 18px; background: var(--white); color: var(--sage); font-size: 12px; font-weight: 700; text-align: center; }
+  .audit-options { padding: 8px 20px 12px; }
+  .audit-option { display: grid; grid-template-columns: 22px 1fr; gap: 11px; align-items: start; padding: 12px 0; cursor: pointer; border-bottom: 1px solid #edf1ed; }
+  .audit-option:last-child { border-bottom: 0; }
+  .audit-option input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--sage); cursor: pointer; }
+  .audit-option strong { display: block; color: var(--ink); font-size: 13px; font-weight: 600; line-height: 1.45; }
+  .audit-option span { display: block; margin-top: 3px; color: var(--light); font-size: 11px; line-height: 1.5; }
+  .audit-result { position: sticky; top: 74px; padding: 22px; border-radius: 15px; background: var(--ink); color: #fff; }
+  .audit-result-label { color: rgba(255,255,255,.6); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+  .audit-total { margin: 8px 0 2px; font-family: 'Playfair Display', serif; color: #fff; font-size: 50px; line-height: 1; }
+  .audit-level { color: #dce7de; font-size: 13px; font-weight: 600; }
+  .audit-progress { height: 7px; margin: 18px 0; overflow: hidden; border-radius: 7px; background: rgba(255,255,255,.13); }
+  .audit-progress-bar { width: 0; height: 100%; border-radius: inherit; background: var(--terracotta); transition: width .25s ease; }
+  .audit-breakdown { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+  .audit-breakdown-row { display: flex; justify-content: space-between; gap: 12px; color: rgba(255,255,255,.72); font-size: 11px; }
+  .audit-breakdown-row b { color: #fff; }
+  .audit-advice { padding-top: 16px; border-top: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.78); font-size: 12px; line-height: 1.6; }
+  .audit-reset { width: 100%; margin-top: 16px; padding: 10px 14px; border: 1px solid rgba(255,255,255,.24); border-radius: 8px; background: transparent; color: #fff; font: inherit; font-size: 11px; cursor: pointer; }
+  .audit-reset:hover { background: rgba(255,255,255,.08); }
+  .audit-legal { margin-top: 18px; color: var(--light); font-size: 11px; line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--light);
+  }
+
+  @media (max-width: 660px) {
+    .header h1 { font-size: 32px; }
+    .header-grid { grid-template-columns: 1fr; }
+    .header-photo { height: 300px; }
+    .header-stats { flex-direction: row; justify-content: space-around; }
+    .about-grid, .expertise-grid { grid-template-columns: 1fr; }
+    .contact-box { grid-template-columns: 1fr; }
+    .pub-card { grid-template-columns: 1fr; }
+    .archive-list { grid-template-columns: 1fr; }
+    .audit-layout { grid-template-columns: 1fr; }
+    .audit-result { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="header">
+  <div class="container">
+    <div class="header-grid">
+      <div>
+        <div class="header-tag">Портфолио · 2026</div>
+        <h1>Екатерина<br><em>Гузман</em></h1>
+        <div class="header-titles">
+          <span class="badge badge-gold">PR для врачей и психологов</span>
+          <span class="badge badge-gold">Публикации в СМИ</span>
+          <span class="badge">Врач и медицинский автор</span>
+          <span class="badge">Доказательный подход</span>
+        </div>
+        <a class="header-cta" href="#contact">Обсудить задачу</a>
+      </div>
+      <div class="header-profile">
+        <img class="header-photo" src="IMG_7953.png" alt="Екатерина Гузман выступает с микрофоном на профессиональном мероприятии">
+        <div class="header-stats">
+          <div>
+            <div class="stat-num">89</div>
+            <div class="stat-label">публикация</div>
+          </div>
+          <div>
+            <div class="stat-num">20+</div>
+            <div class="stat-label">СМИ</div>
+          </div>
+          <div>
+            <div class="stat-num">5</div>
+            <div class="stat-label">лет опыта</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#about">Обо мне</a>
+    <a href="#media-audit">Чек-лист</a>
+    <a href="#services">Услуги</a>
+    <a href="#publications">Публикации</a>
+    <a href="#media">СМИ</a>
+    <a href="#expertise">Экспертиза</a>
+    <a href="#contact">Контакты</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ ABOUT ══ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Профиль</div>
+      <div class="section-title">Помогаю экспертности становиться заметной</div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-lead">
+          Я врач и медицинский автор. Помогаю врачам и психологам превращать профессиональный опыт в сильный публичный профиль: находить свою экспертную тему, выходить в СМИ и говорить с аудиторией понятно, точно и без медицинского кликбейта.
+        </p>
+        <p class="about-lead">
+          Мое преимущество в сочетании двух компетенций. Как врач, я понимаю исследования, клинические ограничения и ответственность за каждое утверждение. Как автор, знаю требования редакций и умею превращать сложную тему в живой материал. Готовлю позиционирование, статьи, экспертные комментарии и профессиональные медиапортфолио.
+        </p>
+      </div>
+      <div class="competencies">
+        <div class="comp-item">
+          <div class="comp-title">Медийное позиционирование</div>
+          <div class="comp-desc">Профессиональная тема, биография, медиакит и стратегия публичного присутствия</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-title">Статьи и комментарии</div>
+          <div class="comp-desc">Материалы для СМИ, ответы журналистам, интервью, колонки и научная редактура</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-title">PR для врачей и психологов</div>
+          <div class="comp-desc">Системное медиаприсутствие без агрессивной рекламы и громких медицинских обещаний</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-title">Международное портфолио</div>
+          <div class="comp-desc">Русская и английская упаковка профессионального профиля для карьерных задач</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEDIA PROFILE AUDIT ══ -->
+<section class="section" id="media-audit">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Интерактивный аудит</div>
+      <div class="section-title">Чек-лист медийного профиля врача</div>
+    </div>
+    <p class="audit-intro">Отметьте то, что уже есть в вашем публичном профиле. Калькулятор покажет, насколько легко журналисту пригласить вас как эксперта, пациенту понять вашу ценность, а иммиграционному адвокату собрать подтверждаемый профессиональный след.</p>
+
+    <div class="audit-layout">
+      <div class="audit-groups">
+        <div class="audit-group" data-audience="journalist">
+          <div class="audit-group-head">
+            <div class="audit-group-title">Что видит журналист</div>
+            <div class="audit-group-score" id="score-journalist">0%</div>
+          </div>
+          <div class="audit-options">
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Понятная специализация в одном предложении</strong><span>Сразу ясно, по каким темам к вам можно обратиться за комментарием.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Короткая профессиональная биография</strong><span>Должность, образование, опыт и ключевая компетенция помещаются в 500–700 знаков.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Список экспертных тем</strong><span>Есть 5–10 конкретных тем, а не общее определение «врач широкого профиля».</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Ссылки на опубликованные комментарии</strong><span>Примеры показывают, что вы умеете отвечать точно, понятно и в срок.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Профессиональное фото для публикации</strong><span>Есть портрет хорошего качества и разрешение использовать его в СМИ.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="journalist"><span><strong>Быстрый способ связи</strong><span>Указан Telegram, email или другой канал, где вы оперативно отвечаете редакции.</span></span></label>
+          </div>
+        </div>
+
+        <div class="audit-group" data-audience="patient">
+          <div class="audit-group-head">
+            <div class="audit-group-title">Что видит пациент</div>
+            <div class="audit-group-score" id="score-patient">0%</div>
+          </div>
+          <div class="audit-options">
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Проверяемые образование и квалификация</strong><span>Указаны специальность, обучение и профессиональный статус без размытых регалий.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Понятно, с какими задачами вы работаете</strong><span>Пациент может быстро определить, подходит ли ему ваша специализация.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Доказательный подход объяснён простыми словами</strong><span>Видны источники, ограничения и отсутствие обещаний гарантированного результата.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Публикации в независимых СМИ</strong><span>Материалы подтверждают экспертность за пределами личного блога и страницы клиники.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Прозрачный формат работы</strong><span>Понятны услуги, границы консультации, запись и дальнейшие действия.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="patient"><span><strong>Единый профессиональный образ</strong><span>Биография, фото, темы и формулировки не противоречат друг другу на разных площадках.</span></span></label>
+          </div>
+        </div>
+
+        <div class="audit-group" data-audience="lawyer">
+          <div class="audit-group-head">
+            <div class="audit-group-title">Что получает иммиграционный адвокат</div>
+            <div class="audit-group-score" id="score-lawyer">0%</div>
+          </div>
+          <div class="audit-options">
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Реестр публикаций с выходными данными</strong><span>Для каждого материала сохранены ссылка, дата, издание, заголовок и ваша роль.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Независимые материалы о вашей работе</strong><span>Можно отделить авторские тексты и комментарии от публикаций, посвящённых вам и вашим достижениям.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Подтверждение статуса изданий</strong><span>Собраны сведения об аудитории, тематике и уровне СМИ, если они нужны для анализа кейса.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Связь публикаций с профессиональными достижениями</strong><span>Понятно, какие проекты, методы, исследования или результаты подтверждает каждый материал.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Архив доказательств</strong><span>Сохранены PDF, скриншоты, страницы с авторством, датами и упоминанием эксперта.</span></span></label>
+            <label class="audit-option"><input type="checkbox" data-audience="lawyer"><span><strong>Англоязычное описание профиля</strong><span>Есть точная биография и краткие аннотации публикаций для передачи адвокату.</span></span></label>
+          </div>
+        </div>
+
+        <p class="audit-legal">Калькулятор оценивает полноту медийного профиля. Он не является юридической консультацией, не определяет соответствие визовым критериям и не прогнозирует решение по иммиграционному делу.</p>
+      </div>
+
+      <aside class="audit-result" aria-live="polite">
+        <div class="audit-result-label">Готовность профиля</div>
+        <div class="audit-total"><span id="audit-total">0</span>%</div>
+        <div class="audit-level" id="audit-level">Профиль требует основы</div>
+        <div class="audit-progress"><div class="audit-progress-bar" id="audit-progress-bar"></div></div>
+        <div class="audit-breakdown">
+          <div class="audit-breakdown-row"><span>Для журналиста</span><b id="result-journalist">0%</b></div>
+          <div class="audit-breakdown-row"><span>Для пациента</span><b id="result-patient">0%</b></div>
+          <div class="audit-breakdown-row"><span>Для адвоката</span><b id="result-lawyer">0%</b></div>
+        </div>
+        <div class="audit-advice" id="audit-advice">Начните с чёткого позиционирования, короткой биографии и списка тем, по которым вы готовы выступать экспертом.</div>
+        <button class="audit-reset" id="audit-reset" type="button">Сбросить ответы</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Для врачей, психологов и health-экспертов</div>
+      <div class="section-title">PR и профессиональное медиапортфолио</div>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-card">
+        <div class="exp-title">Диагностика экспертного профиля</div>
+        <div class="exp-desc">Анализ опыта и публичности, позиционирование, 10–15 тем для СМИ и план публикаций на три месяца</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-title">Экспертная упаковка</div>
+        <div class="exp-desc">Профессиональная биография, медиакит, ключевые темы, цитаты, контентная матрица и тексты для сайта</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-title">PR-сопровождение</div>
+        <div class="exp-desc">Статьи, комментарии, ответы на запросы журналистов, инфоповоды и адаптация материалов для социальных сетей</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-title">Международное портфолио</div>
+        <div class="exp-desc">Медийная стратегия, русское и английское позиционирование, реестр публикаций и описание материалов для адвоката</div>
+      </div>
+    </div>
+    <div class="services-note">
+      Я создаю медийную часть профессионального профиля, но не оказываю юридические услуги и не гарантирую получение визы. Соответствие публикаций критериям конкретной иммиграционной программы оценивает лицензированный иммиграционный специалист.
+    </div>
+  </div>
+</section>
+
+<!-- ══ PUBLICATIONS ══ -->
+<section class="section" id="publications">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Избранные работы</div>
+      <div class="section-title">Публикации в СМИ</div>
+    </div>
+    <div class="pubs-grid">
+
+      <!-- СПОРТ-ЭКСПРЕСС -->
+      <div class="cat-header">
+        <div class="cat-dot" style="background:#1a5c3a"></div>
+        <div class="cat-name">Спортивная медицина · Спорт-Экспресс TROPS</div>
+        <div class="cat-count">8 публикаций</div>
+      </div>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/nutrition/reviews/chto-pit-vo-vremya-dlitelnoy-trenirovki-kakie-napitki-isklyuchit-kakie-ispolzovat-2444307/" target="_blank">
+        <div>
+          <div class="pub-title">Вода или изотоник: что пить во время длительной тренировки</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врач Суриков</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/disciplines/news/vrach-sportivnoy-mediciny-nazval-prichinu-boley-v-spine-vo-vremya-bega-2437715/" target="_blank">
+        <div>
+          <div class="pub-title">Врач спортивной медицины назвал причину болей в спине во время бега</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/training/reviews/kak-nachat-begat-s-nulya-bezopasnaya-programma-dlya-novichkov-2026-2437378/" target="_blank">
+        <div>
+          <div class="pub-title">Как начать бегать с нуля: полное руководство для начинающих в 2026 году</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врач Суриков</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/training/reviews/pochemu-posle-bega-bolit-spina-prichiny-boli-v-poyasnitse-i-kak-ee-izbezhat-2435794/" target="_blank">
+        <div>
+          <div class="pub-title">Почему после бега болит спина: 5 причин, о которых стоит знать каждому бегуну</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врачи Суриков и Федосова</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/zozh/fitness/reviews/vosstanovitelnyy-beg-chem-polezen-komu-nuzhen-kakoy-dolzhen-byt-puls-i-skolko-nuzhno-probezhat-2432142/" target="_blank">
+        <div>
+          <div class="pub-title">Восстановительный бег: чем полезен, кому нужен и как правильно подобрать темп</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врач Суриков</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/training/news/vrach-lfk-rasskazala-komu-protivopokazany-trenirovki-po-plavaniyu-2438306/" target="_blank">
+        <div>
+          <div class="pub-title">Врач ЛФК рассказала, кому противопоказаны тренировки по плаванию</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/trops/training/reviews/polza-plavaniya-v-basseyne-dlya-zhenschin-komu-podhodit-protivopokazaniya-2435176/" target="_blank">
+        <div>
+          <div class="pub-title">Польза плавания для женщин: комплексное влияние на организм и здоровье</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врач Федосова</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.sport-express.ru/zozh/fitness/reviews/kak-beg-vliyaet-na-koleni-vred-marafona-dlya-sustavov-pravda-ili-mif-2422969/" target="_blank">
+        <div>
+          <div class="pub-title">Правда ли марафоны «убивают» колени: разбираемся с врачом и тренером</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">Спорт-Экспресс</span>
+            <span class="pub-role">врач Федосова</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <!-- ЗДОРОВЬЕ И ПИТАНИЕ -->
+      <div class="cat-header">
+        <div class="cat-dot" style="background:#1a3a6b"></div>
+        <div class="cat-name">Здоровье · питание · активное долголетие</div>
+        <div class="cat-count">6 публикаций</div>
+      </div>
+
+      <a class="pub-card" href="https://mir24.tv/articles/16674328/sekret-aktivnogo-dolgoletiya.-vrachi-rasskazali-kak-detskie-uprazhneniya-treniruyut-pamyat-v-pozhilom-vozraste" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Секрет активного долголетия: как детские упражнения тренируют память в пожилом возрасте</div>
+          <div class="pub-meta">
+            <span class="pub-source">МИР 24</span>
+            <span class="pub-date">2026</span>
+            <span class="pub-role">экспертный комментарий</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.mk-lenobl.ru/social/2026/06/13/ne-prosto-kapriz-ekspert-rasskazala-v-kakikh-sluchayakh-zhelanie-sest-tort-trebuet-vizita-k-vrachu.html" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Не просто каприз: в каких случаях желание съесть торт требует визита к врачу</div>
+          <div class="pub-meta">
+            <span class="pub-source">МК Ленинградская область</span>
+            <span class="pub-date">13.06.2026</span>
+            <span class="pub-role">экспертный комментарий</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://rg.ru/2026/05/21/v-bodrom-tele.html" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">В бодром теле</div>
+          <div class="pub-meta">
+            <span class="pub-source">Российская газета</span>
+            <span class="pub-date">21.05.2026</span>
+            <span class="pub-role">экспертный комментарий</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://www.jv.ru/news/sladkaa-i-hrustasaa-cem-polezna-redka-dajkon-i-cto-s-nej-prigotovit" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Сладкая и хрустящая: чем полезна редька дайкон и что с ней приготовить</div>
+          <div class="pub-meta">
+            <span class="pub-source">ЖИВИ!</span>
+            <span class="pub-date">19.05.2026</span>
+            <span class="pub-role">экспертный комментарий и рецепты</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://lady.mail.ru/compilations/566811-luchshij-tvorog/" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Лучший творог в 2026 году: рейтинг редакции Леди Mail</div>
+          <div class="pub-meta">
+            <span class="pub-source psych">Леди Mail</span>
+            <span class="pub-date">25.06.2025</span>
+            <span class="pub-role">эксперт статьи</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://russian.rt.com/russia/news/1503542-ryba-upotreblenie-polza-prichiny" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Россиянам назвали пять неожиданных причин есть рыбу чаще</div>
+          <div class="pub-meta">
+            <span class="pub-source sport">RT</span>
+            <span class="pub-date">08.07.2025</span>
+            <span class="pub-role">экспертный комментарий</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <!-- КАЧЕСТВО И УПРАВЛЕНИЕ -->
+      <div class="cat-header">
+        <div class="cat-dot" style="background:#b8965a"></div>
+        <div class="cat-name">Качество · аудит · системы менеджмента</div>
+        <div class="cat-count">1 публикация</div>
+      </div>
+
+      <a class="pub-card" href="https://kachestvo.pro/innovatsii/tsifrovizatsiya-smk-trend-ili-polza/" target="_blank" rel="noopener">
+        <div>
+          <div class="pub-title">Цифровизация СМК: тренд или польза</div>
+          <div class="pub-meta">
+            <span class="pub-source seo">ProКачество</span>
+            <span class="pub-date">16.07.2026</span>
+            <span class="pub-role">эксперт по качеству и ведущий аудитор</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <!-- SEO -->
+      <div class="cat-header">
+        <div class="cat-dot" style="background:#1a6b6b"></div>
+        <div class="cat-name">SEO-статьи · Медицинская профилактика</div>
+        <div class="cat-count">2 публикации</div>
+      </div>
+
+      <a class="pub-card" href="https://med-prof.ru/o-tsentre/novosti/tsentry-zdorovya-kubani-pomogayut-sokhranit-zdorove-i-predupredit-razvitie-zabolevaniy/" target="_blank">
+        <div>
+          <div class="pub-title">Центры здоровья Кубани помогают сохранить здоровье и предупредить развитие заболеваний</div>
+          <div class="pub-meta">
+            <span class="pub-source seo">med-prof.ru</span>
+            <span class="pub-role">ГБУЗ ЦОЗиМП Краснодарского края</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+      <a class="pub-card" href="https://med-prof.ru/o-tsentre/novosti/profilaktika-allergicheskikh-zabolevaniy-kak-predupredit-allergiyu/" target="_blank">
+        <div>
+          <div class="pub-title">Профилактика аллергических заболеваний: как предупредить аллергию</div>
+          <div class="pub-meta">
+            <span class="pub-source seo">med-prof.ru</span>
+            <span class="pub-role">ГБУЗ ЦОЗиМП Краснодарского края</span>
+          </div>
+        </div>
+        <div><span class="pub-arrow">→</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FULL ARCHIVE ══ -->
+<section class="section" id="archive">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Полный архив</div>
+      <div class="section-title">Публикации и экспертные комментарии</div>
+    </div>
+    <details class="archive-shell">
+      <summary>Показать еще 72 публикации <span>Pressfeed · 2024–2026</span></summary>
+      <div class="archive-content">
+        <div class="archive-filters" aria-label="Фильтр по изданиям">
+          <button class="archive-filter active" type="button" data-filter="all">Все 72</button>
+          <button class="archive-filter" type="button" data-filter="gazeta">Газета.ru · 52</button>
+          <button class="archive-filter" type="button" data-filter="aif">АиФ · 10</button>
+          <button class="archive-filter" type="button" data-filter="rt">RT · 7</button>
+          <button class="archive-filter" type="button" data-filter="other">Другие · 3</button>
+        </div>
+        <div class="archive-list" id="archive-list">
+          <!-- PRESSFEED_ARCHIVE -->
+          <a class="archive-item" data-group="other" href="https://www.kp.ru/online/news/6134519" target="_blank" rel="noopener"><span>Нутрициолог Гузман: с зимней депрессией поможет справиться правильное питание</span><small>Комсомольская правда ↗</small></a>
+          <a class="archive-item" data-group="other" href="https://www.kuban.kp.ru/online/news/6826553/" target="_blank" rel="noopener"><span>Краснодарский нутрициолог Гузман: Блины можно сделать полезными, изменив рецепт</span><small>Комсомольская правда ↗</small></a>
+          <a class="archive-item" data-group="other" href="https://kuban24.tv/item/ekaterina-guzman-schitaya-kalorii-vy-delaete-shag-k-uluchsheniyu-svoego-zdorovya" target="_blank" rel="noopener"><span>Екатерина Гузман: считая калории, вы делаете шаг к улучшению своего здоровья</span><small>Кубань 24 ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-rasskazala-kak-zashchititsya-ot-peregreva-v-zharkuyu-pogodu-v-probke" target="_blank" rel="noopener"><span>Врач рассказала, как защититься от перегрева в жаркую погоду в пробке</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-guzman-rasskazala-pochemu-mozhno-oslepnut-iz-za-domashnih-zakrutok" target="_blank" rel="noopener"><span>Врач Гузман рассказала, почему можно ослепнуть из-за домашних закруток</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-guzman-rasskazala-kak-eda-iz-konteynera-vliyaet-na-zdorove" target="_blank" rel="noopener"><span>Врач Гузман рассказала, как еда из контейнера влияет на здоровье</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/kubanskiy-vrach-guzman-rasskazala-kak-zashchititsya-ot-poddelnyh-biodobavok" target="_blank" rel="noopener"><span>Кубанский врач Гузман рассказала, как защититься от поддельных биодобавок</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-guzman-poyasnila-chem-opasno-samolechenie-prostudy-antibiotikami" target="_blank" rel="noopener"><span>Врач Гузман пояснила, чем опасно самолечение простуды антибиотиками</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/nutriciolog-guzman-rasskazala-o-riskah-upotrebleniya-produktov-s-plesenyu" target="_blank" rel="noopener"><span>Нутрициолог Гузман рассказала о рисках употребления продуктов с плесенью</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-guzman-strogiy-post-nelzya-derzhat-lyudyam-s-diabetom-pervogo-tipa" target="_blank" rel="noopener"><span>Врач Гузман: строгий пост нельзя держать людям с диабетом первого типа</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://kuban.aif.ru/health/vrach-ekaterina-guzman-letom-nuzhno-snizit-potreblenie-kolbasy-i-fastfuda" target="_blank" rel="noopener"><span>Врач Екатерина Гузман: летом нужно снизить потребление колбасы и фастфуда</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://krym.aif.ru/health/ozhidaya-aista-kak-pravilno-podgotovitsya-k-rozhdeniyu-rebenka" target="_blank" rel="noopener"><span>Ожидая аиста. Как правильно подготовиться к рождению ребенка?</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="aif" href="https://krym.aif.ru/health/smartfon-v-rukah-diabet-v-budushchem-k-kakim-boleznyam-mogut-privesti-gadzhety" target="_blank" rel="noopener"><span>Смартфон в руках: диабет в будущем. К каким болезням могут привести гаджеты</span><small>АиФ ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1480020-nutriciolog-klubnika-zdorove" target="_blank" rel="noopener"><span>Нутрициолог Гузман: клубника поддерживает здоровье кожи и мозга</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1488768-nutriciolog-ryba-polza" target="_blank" rel="noopener"><span>Нутрициолог Гузман: рыба богата полезными нутриентами</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1496919-ekspert-zelenyi-goroshek" target="_blank" rel="noopener"><span>Нутрициолог Гузман: зеленый горошек может быть вреден при заболеваниях ЖКТ</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1550972-ekspert-pitanie-zdorove" target="_blank" rel="noopener"><span>Нутрициолог Гузман: чрезмерное потребление соли способствует развитию гипертонии</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1550980-ekspert-zdorove-pitanie" target="_blank" rel="noopener"><span>Нутрициолог Гузман: стакан газировки содержит суточную норму сахара</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1551279-nutriciolog-hurma-norma" target="_blank" rel="noopener"><span>Нутрициолог Гузман посоветовала не переедать хурмы</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="rt" href="https://russian.rt.com/nopolitics/news/1507047-nutriciolog-smorodina-opasnost" target="_blank" rel="noopener"><span>Нутрициолог Гузман: красная смородина может быть вредна для людей с гемофилией</span><small>RT ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2024/12/11/24603398.shtml" target="_blank" rel="noopener"><span>Врач заявила, что магний — не панацея от депрессии и предновогодней хандры</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/01/26/24927398.shtml" target="_blank" rel="noopener"><span>Врач отреагировала на слова Лукашенко о пользе картошки при похудении</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/05/20/25826822.shtml" target="_blank" rel="noopener"><span>Названы правила, которые помогут выбрать клубнику без нитратов</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/05/26/25875038.shtml" target="_blank" rel="noopener"><span>Врач объяснила, в какое время безопасно есть клубнику</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/05/26/25875194.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, на что обратить внимание при выборе клубники</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/06/16/26041610.shtml" target="_blank" rel="noopener"><span>Россиянам назвали «суперфуд» для снижения стресса и работы мозга</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/07/23/26332388.shtml" target="_blank" rel="noopener"><span>Врач рассказала о пользе ежевики для сосудов и сердца</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/08/26/26581034.shtml" target="_blank" rel="noopener"><span>Врач назвала лучшие продукты для укрепления иммунитета осенью</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/08/31/26617724.shtml" target="_blank" rel="noopener"><span>Врач раскрыла уникальные свойства лисичек</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/08/31/26617754.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому не стоит есть лисички</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/09/04/26655158.shtml" target="_blank" rel="noopener"><span>Врач поделилась секретами укрепления иммунитета осенью</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/09/10/26693918.shtml" target="_blank" rel="noopener"><span>Врач назвала минимальную рекомендуемую порцию овощей и фруктов в осенний день</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/09/26/26824106.shtml" target="_blank" rel="noopener"><span>Врач перечислила полезные свойства тыквы</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/09/26/26824124.shtml" target="_blank" rel="noopener"><span>Врач предупредила о вреде тыквы при сахарном диабете</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/08/26911490.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, полезен ли чай с облепихой и имбирем</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/08/26911562.shtml" target="_blank" rel="noopener"><span>Врач перечислила, кому противопоказан чай с облепихой и имбирем</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/16/26972390.shtml" target="_blank" rel="noopener"><span>Врач раскрыла, является ли базилик афродизиаком</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/21/27004682.shtml" target="_blank" rel="noopener"><span>Россиянам раскрыли пользу гранатового сока</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/22/27010820.shtml" target="_blank" rel="noopener"><span>Россиянам назвали ТОП-5 продуктов для повышения мужского либидо</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/22/27011198.shtml" target="_blank" rel="noopener"><span>Названы ТОП-5 продуктов для повышения женского либидо</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/25/27031310.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, как отучиться есть много сахара</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/25/27031868.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, чем опасно переедание соли</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/26/27036680.shtml" target="_blank" rel="noopener"><span>Россиянам перечислили полезные свойства хурмы</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/26/27036728.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому опасно есть хурму</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/28/27049256.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, помогает ли гранатовый сок при дефиците железа</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/29/27057986.shtml" target="_blank" rel="noopener"><span>Россиянам назвали продукты -- лидеры по содержанию витамина D</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/30/27068024.shtml" target="_blank" rel="noopener"><span>Врач рассказала, что тыквенный суп полезен при проблеме «стула раз в три дня»</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/31/27079328.shtml" target="_blank" rel="noopener"><span>Врач рассказала о пользе томатного сока для мужчин</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/10/31/27079346.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому не стоит пить томатный сок</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/07/27131162.shtml" target="_blank" rel="noopener"><span>Врач рассказала о пользе фейхоа при йододефиците</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/07/27131240.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому не стоит есть фейхоа</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/10/27143342.shtml" target="_blank" rel="noopener"><span>Часть людей предостерегли от употребления хурмы</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/10/27147980.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, сколько фейхоа можно съедать в день</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/12/27169040.shtml" target="_blank" rel="noopener"><span>Врач объяснила, почему опасно хранить таблетки без упаковки</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/17/27199010.shtml" target="_blank" rel="noopener"><span>Врач рассказала, какой осенний фрукт полезен для продления молодости</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/18/27210344.shtml" target="_blank" rel="noopener"><span>Россиянам назвали продукт, который замедляет старение</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/11/25/27261955.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, как правильно хранить помидоры после покупки</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/12/04/27332287.shtml" target="_blank" rel="noopener"><span>Россиянам рассказали, как избежать проблем с щитовидкой</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2025/12/22/27470131.shtml" target="_blank" rel="noopener"><span>Врач назвала суп, которые активирует иммунитет и улучшит состояние кожи</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/01/10/27589939.shtml" target="_blank" rel="noopener"><span>Врач назвала продукты, которые помогут прийти в форму после новогодних застолий</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/01/12/27596641.shtml" target="_blank" rel="noopener"><span>Врач объяснил, как восстановить режим сна после праздников</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/01/12/27603805.shtml" target="_blank" rel="noopener"><span>Врач дал советы, как восстановить организм после новогодних праздников</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/02/21/27909721.shtml" target="_blank" rel="noopener"><span>Нутрициолог назвала продукт, защищающий от выгорания</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/03/10/28023835.shtml" target="_blank" rel="noopener"><span>В России утвержден новый ГОСТ на хурму</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/03/31/28174627.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому полезны мидии</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/03/31/28174645.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому нежелательно есть мидии</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/04/01/28178941.shtml" target="_blank" rel="noopener"><span>Врач раскрыла пользу устриц</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/04/01/28178965.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому опасно есть сырые устрицы</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/04/02/28189423.shtml" target="_blank" rel="noopener"><span>Россиянам назвали безопасную норму шоколада</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/04/28/28358455.shtml" target="_blank" rel="noopener"><span>Врач рассказала, кому вредно есть зефир</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/04/28/28358497.shtml" target="_blank" rel="noopener"><span>Врач рассказала, можно ли считать зефир диетическим десертом</span><small>Газета.ru ↗</small></a>
+          <a class="archive-item" data-group="gazeta" href="https://www.gazeta.ru/social/news/2026/05/04/28395943.shtml" target="_blank" rel="noopener"><span>Врач рассказала о пользе гребешков и креветок</span><small>Газета.ru ↗</small></a>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══ MEDIA ══ -->
+<section class="section" id="media">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">СМИ</div>
+      <div class="section-title">Федеральные и региональные издания</div>
+    </div>
+    <div class="logos-grid">
+      <div class="logo-chip kommersant">Коммерсантъ</div>
+      <div class="logo-chip kp">КОМСОМОЛЬСКАЯ ПРАВДА</div>
+      <div class="logo-chip rt">RT</div>
+      <div class="logo-chip forbes">Forbes Woman</div>
+      <div class="logo-chip maxim">MAXIM</div>
+      <div class="logo-chip interfax">ИНТЕРФАКС</div>
+      <div class="logo-chip tass">ТАСС</div>
+      <div class="logo-chip krasnodar">КРАСНОДАР ТВ</div>
+      <div class="logo-chip kuban">КУБАНСКИЕ НОВОСТИ</div>
+      <div class="logo-chip ugtimes">Юг Times</div>
+      <div class="logo-chip tsargrad">Царьград</div>
+      <div class="logo-chip lenta">LENTA.RU</div>
+      <div class="logo-chip championat">ЧЕМПИОНАТ</div>
+      <div class="logo-chip jivi">ЖИВИ!</div>
+      <div class="logo-chip mir">МИР 24</div>
+      <div class="logo-chip quality">ProКачество</div>
+      <div class="logo-chip lady">Леди Mail</div>
+      <div class="logo-chip aif">АиФ</div>
+      <div class="logo-chip ki">Краснодарские известия</div>
+      <div class="logo-chip abzac">АБЗАЦ</div>
+      <div class="logo-chip mk">Московский Комсомолец</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERTISE ══ -->
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Экспертные темы</div>
+      <div class="section-title">Работаю в этих направлениях</div>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-card">
+        <span class="exp-icon">🥗</span>
+        <div class="exp-title">Нутрициология и питание</div>
+        <div class="exp-desc">Доказательные материалы о питании, диетах, нутриентах, пищевом поведении</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🧠</span>
+        <div class="exp-title">Психология и поведение</div>
+        <div class="exp-desc">Когнитивные искажения, привязанность, детская психология, отношения</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🏃</span>
+        <div class="exp-title">Спортивная медицина</div>
+        <div class="exp-desc">Бег, плавание, восстановление, спортивные травмы, ЛФК</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🛡</span>
+        <div class="exp-title">Медицинская профилактика</div>
+        <div class="exp-desc">ЗОЖ, профилактика заболеваний, общественное здоровье</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔬</span>
+        <div class="exp-title">Безопасность питания</div>
+        <div class="exp-desc">ISO 22000 / FSSC 22000, пищевая гигиена, технология продуктов</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">✍️</span>
+        <div class="exp-title">Контент под ключ</div>
+        <div class="exp-desc">Статьи, комментарии, SEO-тексты, сторис, видеосценарии от медицинского эксперта</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div>
+        <h3>Екатерина Гузман</h3>
+        <p>Врач и медицинский автор<br>PR и публикации в СМИ для врачей и психологов<br>Медийное позиционирование · статьи · экспертные комментарии</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="https://t.me/Dr_Ekaterina_Alexandrovna" target="_blank" rel="noopener"><span class="icon">✈️</span> Telegram</a>
+        <a class="contact-link" href="https://wa.me/79186318273" target="_blank" rel="noopener"><span class="icon">📱</span> WhatsApp</a>
+        <a class="contact-link" href="mailto:ekaterinaguzman98@gmail.com"><span class="icon">✉️</span> Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © 2026 Екатерина Гузман · PR и публикации в СМИ для врачей и психологов
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.archive-filter').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelectorAll('.archive-filter').forEach(function(item) { item.classList.remove('active'); });
+      button.classList.add('active');
+      var filter = button.dataset.filter;
+      document.querySelectorAll('.archive-item').forEach(function(item) {
+        item.hidden = filter !== 'all' && item.dataset.group !== filter;
+      });
+    });
+  });
+
+  (function() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('#media-audit input[type="checkbox"]'));
+    var audiences = ['journalist', 'patient', 'lawyer'];
+    var storageKey = 'guzman-media-profile-audit';
+
+    function percentage(audience) {
+      var group = boxes.filter(function(box) { return box.dataset.audience === audience; });
+      var checked = group.filter(function(box) { return box.checked; }).length;
+      return Math.round((checked / group.length) * 100);
+    }
+
+    function adviceFor(scores, total) {
+      if (total === 100) return 'Профиль полностью собран. Следующий шаг: регулярно обновлять реестр публикаций и сохранять доказательства каждой новой медийной активности.';
+      if (total >= 75) return 'Сильная база уже есть. Закройте оставшиеся пробелы и приведите биографию, публикации и контакты к единому формату.';
+      if (total >= 50) return 'Профиль уже работает, но пока не раскрывает всю экспертность. Сосредоточьтесь на самой слабой из трёх оценок.';
+      if (scores.journalist <= scores.patient && scores.journalist <= scores.lawyer) return 'Начните с чёткого позиционирования, короткой биографии, списка тем и удобного контакта для редакций.';
+      if (scores.patient <= scores.lawyer) return 'Усилите доверие пациента: покажите квалификацию, задачи, формат работы и независимые публикации.';
+      return 'Соберите реестр публикаций, выходные данные, архив страниц и англоязычные аннотации для профессионального кейса.';
+    }
+
+    function levelFor(total) {
+      if (total >= 90) return 'Сильный медийный профиль';
+      if (total >= 70) return 'Профиль почти готов';
+      if (total >= 45) return 'Есть основа для усиления';
+      return 'Профиль требует основы';
+    }
+
+    function updateAudit() {
+      var scores = {};
+      audiences.forEach(function(audience) {
+        scores[audience] = percentage(audience);
+        document.getElementById('score-' + audience).textContent = scores[audience] + '%';
+        document.getElementById('result-' + audience).textContent = scores[audience] + '%';
+      });
+      var total = Math.round((scores.journalist + scores.patient + scores.lawyer) / 3);
+      document.getElementById('audit-total').textContent = total;
+      document.getElementById('audit-level').textContent = levelFor(total);
+      document.getElementById('audit-progress-bar').style.width = total + '%';
+      document.getElementById('audit-advice').textContent = adviceFor(scores, total);
+      try { localStorage.setItem(storageKey, JSON.stringify(boxes.map(function(box) { return box.checked; }))); } catch (e) {}
+    }
+
+    try {
+      var saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      boxes.forEach(function(box, index) { box.checked = Boolean(saved[index]); });
+    } catch (e) {}
+
+    boxes.forEach(function(box) { box.addEventListener('change', updateAudit); });
+    document.getElementById('audit-reset').addEventListener('click', function() {
+      boxes.forEach(function(box) { box.checked = false; });
+      updateAudit();
+    });
+    updateAudit();
+  })();
+</script>
+
+</body>
+</html>
